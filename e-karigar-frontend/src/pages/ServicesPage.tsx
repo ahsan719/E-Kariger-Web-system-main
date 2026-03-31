@@ -29,7 +29,6 @@ const ServicesPage = () => {
     const location = searchParams.get("location") || "";
     const category = searchParams.get("category") || "";
 
-    const [services, setServices] = useState<Service[]>([]);
     const [loading, setLoading] = useState(true);
     const [filteredServices, setFilteredServices] = useState<Service[]>([]);
 
@@ -37,7 +36,6 @@ const ServicesPage = () => {
         setLoading(true);
         servicesApi.getAll()
             .then((data) => {
-                setServices(data);
 
                 // Client-side filtering
                 let results = data;
